@@ -1,0 +1,27 @@
+#!/bin/bash
+#set -x
+
+if [ -z "$1" ]; then
+    echo "no process specfied."
+    exit
+fi
+
+CMD=$1
+PID=( $(ps -ef | grep "$1" | grep -v "grep" | grep -v "cjones" | grep -v "$0" | awk '{ print $2 }') )
+
+if [ ! -z "$PID" ]; then
+    echo "matching PIDS:  ${PID[@]}"
+else
+    echo "no matching PIDS for [$1]."
+    exit;
+fi
+
+for var in "${PID[@]}"
+do
+    echo -n "kill $CMD [$var] (Y/N)? "
+    read -e CONTINUE
+
+    if [ "Y" == $CONTINUE -o "y" == $CONTINUE ]; then 
+        sudo kill -9 $var
+    fi
+done

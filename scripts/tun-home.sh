@@ -4,10 +4,11 @@
 # elaine:80         nas admin
 # rpi-bplus1:8081   sb
 # rpi-bplus1:5050   cp
-# george:32400      pms
+# marcelino:32400   pms
+# george:25565      minecraft server
 
-FWD="-L6789:elaine:6789 -L8081:rpi-bplus1:8081 -L5050:rpi-bplus1:5050 -L5555:elaine:80 -L32400:george:32400"
-CMD="ssh -N -f $FWD cj@sarcastico.net"
+FWD="-L6789:elaine:6789 -L8081:rpi-bplus1:8081 -L5050:rpi-bplus1:5050 -L5555:elaine:80 -L32400:marcelino:32400"
+CMD="ssh -N -f $FWD extern@sarcastico.net"
 
 PID=( $(ps -ef | grep "ssh" | grep "elaine" | grep -v "$0" | awk '{ print $2 }') )
 

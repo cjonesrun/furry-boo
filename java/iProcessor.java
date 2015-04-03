@@ -1,6 +1,6 @@
 import java.util.Map;
 
-interface iProcessor
+public interface iProcessor
 {
     public void process() throws Exception;
     

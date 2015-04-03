@@ -1,4 +1,7 @@
-abstract class iProcessBase implements iProcessor
+import java.util.Map;
+import java.util.HashMap;
+
+public abstract class iProcessorBase implements iProcessor
 {
     private Map<String, Object> state = new HashMap<String,Object>();
     private iProcessor next;
@@ -15,17 +18,30 @@ abstract class iProcessBase implements iProcessor
     }
     
     @Override
+    public String getStringParam(String name) {
+        return (String) state.get(name);
+    }
+	
+    @Override
+    public Integer getIntegerParam(String name) {
+        return (Integer) state.get(name);
+    }
+	
+    @Override
     public iProcessor setNext(iProcessor next) {
         this.next = next;
         return this;
     }
 
+    public Map<String,Object> getState() {
+		return this.state;
+	}
+	
     /**
      * transfers the state of this processor to the next in line.
      * also clears the local state.
      */
-    @Override
-    public void transferState() {
+	private void transferState() {
         if (next != null)
         {
             for (String key : state.keySet())
@@ -41,6 +57,10 @@ abstract class iProcessBase implements iProcessor
         
         // send state along to next processor
         this.transferState();
+		
+		// execute next
+		if (next != null)
+			this.next.process();
         
     };
      

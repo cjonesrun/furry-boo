@@ -5,17 +5,22 @@ public class Processor_Test
     
     static {
         // chain of processors ...
-        processorChain = new Processor1()
-            .setNext(new Processor2());
+        processorChain = new ProcessorA()
+            .setNext(new ProcessorB());
     }
 
     public static final void main(String[] args)
     {
-        processorChain.addParameter(x,y);
-        // add in initial state
-        processorChain.addParameter("x", "x")
-            .addParameter("y", "y");
+		try
+		{
+        	// add in initial state
+        	processorChain.addParameter("x", "x")
+            	.addParameter("y", "y");
         
-        // kick off the processors
-        processorChain.process();
+        	// kick off the processors
+        	processorChain.process();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
     }
+}

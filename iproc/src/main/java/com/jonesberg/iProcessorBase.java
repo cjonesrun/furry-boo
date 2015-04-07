@@ -30,6 +30,11 @@ public abstract class iProcessorBase implements iProcessor
     }
 	
     @Override
+    public iProcessor getNext() {
+        return this.next;
+    }
+
+    @Override
     public iProcessor setNext(iProcessor next) {
         this.next = next;
         return this;

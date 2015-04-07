@@ -7,7 +7,9 @@ public interface iProcessor
     public iProcessor process() throws Exception;
     
     public iProcessor setNext(iProcessor next);
-	public iProcessor setLast(iProcessor next);
+    public iProcessor getNext();
+
+	public iProcessor setLast(iProcessor last);
     public Map<String,Object> getState();
     
     public iProcessor addParameter(String name, Object value);

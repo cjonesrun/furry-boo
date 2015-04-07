@@ -8,8 +8,7 @@ class ChainOne extends iProcessorBase implements iProcessor {
 	public ChainOne()
 	{
 		this.addParameter("x", "x").addParameter("y","y");
-		this.setLast(new ProcessorA());
-		this.setLast(new ProcessorB());
+		this.setNext(new ProcessorA().setNext(new ProcessorB()));
 	}
 		
 	

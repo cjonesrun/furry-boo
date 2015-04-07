@@ -1,3 +1,5 @@
+package com.jonesberg;
+
 public class ProcessorB extends iProcessorBase
 {
     @Override

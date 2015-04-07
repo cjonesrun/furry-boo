@@ -1,3 +1,5 @@
+package com.jonesberg;
+
 import java.util.Map;
 import java.util.HashMap;
 
@@ -33,6 +35,16 @@ public abstract class iProcessorBase implements iProcessor
         return this;
     }
 
+    @Override
+    public iProcessor setLast(iProcessor next) {
+		iProcessor current = this;
+		while (current.getNext() != null)
+			current = current.getNext();
+		
+		current.setNext( this.next );
+        return this;
+    }
+	
     public Map<String,Object> getState() {
 		return this.state;
 	}
@@ -48,19 +60,19 @@ public abstract class iProcessorBase implements iProcessor
                 this.next.addParameter(key, state.get(key));
             state.clear();
         }
-        
     }
 
     @Override
-    public final void process() throws Exception{
+    public final iProcessor process() throws Exception{
         this.execute();
         
         // send state along to next processor
         this.transferState();
 		
-		// execute next
+		// execute next and send back the last proc for access to state
 		if (next != null)
-			this.next.process();
+			return this.next.process();
+		return this;
         
     };
      

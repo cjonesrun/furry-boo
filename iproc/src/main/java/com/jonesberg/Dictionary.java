@@ -1,3 +1,5 @@
+package com.jonesberg;
+
 import java.util.Map;
 import java.util.HashMap;
 

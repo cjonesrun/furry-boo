@@ -80,7 +80,13 @@ public abstract class iProcessorBase implements iProcessor
 		return this;
         
     };
-     
+    
+	public String toString() {
+		StringBuffer b = new StringBuffer();
+		b.append(this.getClass().getSimpleName())
+			.append(" with state: " + this.state.toString());
+		return b.toString();
+	}
     protected abstract void execute() throws Exception;
     
 }

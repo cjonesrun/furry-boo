@@ -13,6 +13,9 @@ public class App
     {
 		try
 		{
+			// bind(Service.class).annotatedWith(Red.class).to(ServiceImpl.class);
+			
+			
 	        System.out.println( "Starting App" );
 		
 	        Injector injector = Guice.createInjector(new AppInjector());        

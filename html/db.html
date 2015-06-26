@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/dropbox.js/0.10.3/dropbox.min.js"></script>
+</head>
+<body>
+    <center>
+        <button id="writeButton">Click to create <code>hello.txt</code> in Dropbox.</button>
+    </center>
+ 
+    <script>
+        var client = new Dropbox.Client({ key: 'YOUR-APP-KEY-HERE' });
+ 
+        function doHelloWorld() {
+            client.writeFile('hello.txt', 'Hello, World!', function (error) {
+                if (error) {
+                    alert('Error: ' + error);
+                } else {
+                    alert('File written successfully!');
+                }
+            });
+        }
+ 
+        // Try to complete OAuth flow.
+        client.authenticate({ interactive: false }, function (error, client) {
+            if (error) {
+                alert('Error: ' + error);
+            }
+        });
+ 
+        if (client.isAuthenticated()) {
+            doHelloWorld();
+        }
+ 
+        document.getElementById('writeButton').onclick = function () {
+            client.authenticate(function (error, client) {
+                if (error) {
+                    alert('Error: ' + error);
+                } else {
+                    doHelloWorld();
+                }
+            });
+        }
+    </script>
+</body>
+</html>

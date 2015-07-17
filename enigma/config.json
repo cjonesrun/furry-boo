@@ -1,0 +1,15 @@
+{ 
+    "plugboard" : [
+        #{ "plug": "AB" },
+        #{ "plug": "DZ" },
+        #{ "plug": "ST" }
+    ],
+
+    "rotor-setup": [ 
+    	{ "name": "I", "startpos": "A" },
+    	{ "name": "II", "startpos": "A" },
+    	{ "name": "III", "startpos": "A" },
+    	
+    "reflector-setup": "A"
+}
+    

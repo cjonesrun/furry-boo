@@ -1,5 +1,6 @@
 a crack an an enigma machine implementation.
 
+see: https://github.com/johnflan/JavaEnigma
 
 basics:
 

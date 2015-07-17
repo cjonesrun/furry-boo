@@ -1,0 +1,19 @@
+{ 
+    "reflectors": [
+        { "name": "A", "wiring":"EJMZALYXVBWFCRQUONTSPIKHGD" },
+        { "name": "B", "wiring":"YRUHQSLDPXNGOKMIEBFZCWVJAT" },
+        { "name": "C", "wiring":"FVPJIAOYEDRZXWGCTKUQSBNMHL" }
+    ],
+
+    "rotors": [
+        { "name": "I", "wiring":"EKMFLGDQVZNTOWYHXUSPAIBRCJ", "notch": "Q" },
+        { "name": "II", "wiring":"AJDKSIRUXBLHWTMCQGZNPYFVOE", "notch": "E" },
+        { "name": "III", "wiring":"BDFHJLCPRTXVZNYEIWGAKMUSQO", "notch": "V" },
+        { "name": "IV", "wiring":"ESOVPZJAYQUIRHXLNFTGKDCMWB", "notch": "J" },
+        { "name": "V", "wiring":"VZBRGITYUPSDNHLXAWMJQOFECK", "notch": "Z" },
+        { "name": "VI", "wiring":"JPGVOUMFYQBENHZRDKASXLICTW", "notch": "ZM" },
+        { "name": "VII", "wiring":"NZJHGRCXMYSWBOUFAIVLPEKQDT", "notch": "ZM" },
+        { "name": "VIII", "wiring":"FKQHTLXOCBJSPDZRAMEWNIUYGV", "notch": "ZM" }
+    ]
+}
+    

@@ -1,5 +1,10 @@
 a crack an an enigma machine implementation.
 
+emulators;
+http://enigma.louisedade.co.uk/enigma.html
+http://enigmaco.de/enigma/enigma.html
+
+
 see: https://github.com/johnflan/JavaEnigma
 
 basics:

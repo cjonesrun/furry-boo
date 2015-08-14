@@ -1,12 +1,9 @@
 package com.jonesberg;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Rotor
 {
 	private String name;
-	private static final char[] base = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+	private static final char[] base = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z' };
 	private char[] wiringChars;
 	
 	private String wiring;
@@ -28,18 +25,21 @@ public class Rotor
     
     public void setStartPos(char x)
     {
-    	position = (int) (x - 'A');
+    	position = (int) (x - 'A') % base.length;
     }
     
     public char in(char c)
     {
     	// if in notch, move next rotor
-    	return wiringChars[ (int)(c - 'A') + position ];
+    	return wiringChars[ ((int)(c - 'A') + position) % base.length ];
     }
     
     public char out(char c)
     {
-    	return wiringChars[ (int)(c - 'A') - position ];
+    	
+    	for (int i = 0; i<wiringChars.length; i++)
+    		if (wiringChars[i] == c) 
+    			return base[ (int)(c - 'A') - position ];
     }
 
     

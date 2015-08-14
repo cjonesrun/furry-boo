@@ -6,5 +6,10 @@ public class Tools
 	{
 		return new String(a);
 	}
+
+	public int indexOf(char c, char[] ca)
+	{
+		
+	}
 	
 }

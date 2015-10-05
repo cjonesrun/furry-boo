@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC"-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+<script type="text/javascript" src="js/decimal.min.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
+<script type="text/javascript" src="js/constants.js"></script>
+<script>
+
+</script>
+
+<html>
+	<head></head>
+	<body>
+		<div id='runnning_div'>
+			<p>Running <input type=text id="running" value=0></p>
+		</div>
+
+		<div><p><textarea id='messages' rows="4" cols="75"></textarea>
+				<input type=button value='clear' onclick="document.getElementById('messages').value='';">
+			</p></div>
+
+		<div id="items_div"></div>
+		<div id="timer_div">
+			<p>Timer <input type=text id="timer" value=1000> <input type=button value='set timer' on onclick='update_timer_interval();'></p>
+		</div>
+		
+	</body>
+</html>
+
+<script type="text/javascript" src="js/builder.js"></script>
+<script type="text/javascript" src="js/timer.js"></script>

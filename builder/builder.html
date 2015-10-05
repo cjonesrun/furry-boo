@@ -24,6 +24,14 @@
 			<p>Timer <input type=text id="timer" value=1000> <input type=button value='set timer' on onclick='update_timer_interval();'></p>
 		</div>
 		
+		<div id="notes">
+			<p>Notes:</p>
+			<p>
+				Item <i>x</i> will begin producing item <i>x+1</i> at a rate of Math.floor( count-x / BASE^(level+2) ).  <br>
+				eg. 100 bits (level 0) will produce 1 (100/10^2) part per second. <br>
+				1000 parts (level 1) will produce 1 (1000/10^2)block per second.
+			</p>
+		</div>
 	</body>
 </html>
 

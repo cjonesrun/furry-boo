@@ -3,32 +3,36 @@ function getElement(item)
 	return document.getElementById(item);
 }
 
+function calc(level) {
+	return Math.pow(BASE, level);
+}
+
 // build 10^level items, add them to the total and decduct the cose from prev (if affordable)
 function build(item, level)
 {
-	var element = getElement(item);
-	// lowest level, proceed
-	if (element.id == items_arr[0])	{ 
-		itemInc(element, level);
+	//addMessage( ['building', item, 'at level', level] );
+	// lowest smallest item && level, free
+	if (item == items_arr[0])	{ 
+		itemInc(item, level);
 		return;
 	}
 
-	var prev = getElement( prev_map[element.id] );
-	var next_cost = Math.pow(BASE,level+1);
-	if (prev.value >= next_cost) {
-		//console.log( prev.id, prev.value, next_cost );
-		prev.value -= next_cost;
-		itemInc(element, level);
+	var prev = prev_map[item];
+	var next_cost = calc(level+1);
+	if (item_count_map[prev] >= next_cost) {
+		item_count_map[prev] -= next_cost;
+		getElement(prev).value = item_count_map[prev];
+		itemInc(item, level);
 	} else {
-		addMessage( ['can\'t build', item, 'insufficient', prev_map[element.id]+"."	, 'have', prev.value, 'need', next_cost] );
+		addMessage( ['can\'t build', item+".", 'insufficient', prev_map[item]+"."	, 'have', item_count_map[prev], 'need', next_cost+"."] );
 	}
 }
 
 // increase an item count by BASE^level items
-function itemInc(element, level) {
-	var count = parseInt( element.value );
-	var x = parseInt( level );
-	element.value = Math.pow(BASE,level) + count;
+function itemInc(item, level) {
+	var count = item_count_map[item];
+	item_count_map[item] +=  calc(level);
+	getElement(item).value = item_count_map[item];
 }
 
 function itemDec(item, level) {
@@ -45,14 +49,16 @@ function rateInc( item, rate ) {
 		next = next_map[item];
 	}
 
-	var next_cost = Math.pow(BASE, parseInt( rate+1 ) );
+	var next_cost = calc( parseInt( rate+1 ) );
 	if (next_cost <= parseInt(getElement(next).value)) {
 		//addMessage( ['building', item, 'rate increase requires', next_cost, next ] );
-		rate_map[item] += Math.pow(BASE, parseInt( rate ) );
+		rate_map[item] += calc( parseInt( rate ) );
+		item_count_map[next] -= next_cost;
+		
 		getElement(item + "_rate").value = rate_map[item] + "/s";
-		getElement(next).value = parseInt(getElement(next).value) - next_cost;
+		getElement(next).value = item_count_map[next];
 	} else {
-		addMessage( ['can\'t build', item, 'insufficient', next+"."	, 'have', getElement(next).value, 'need', next_cost] );
+		addMessage( ['can\'t build', item, 'accelerator. insufficient', next+"."	, 'have', getElement(next).value, 'need', next_cost+"."] );
 	}
 
 	//addMessage( [item, getElement(item).value, next_map[item], getElement(next_map[item]).value]);

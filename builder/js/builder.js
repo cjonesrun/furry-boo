@@ -3,7 +3,7 @@ var html = '';
 
 html+='<p>';
 
-html += "# name item_count accumulate/s building/s</p><p>";
+html += "# name item_count accumulate/s build/s</p><p>";
 
 for (var i=0; i < items_arr.length; i++) {
     html +=  i+". " + items_arr[i]+'&nbsp;';

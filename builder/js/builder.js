@@ -1,30 +1,37 @@
+var tx = document.getElementById('messages');
+tx.value = document.cookie;
+
 var div = document.getElementById('items_div');
 var html = '';
 
-html+='<p>';
+html+='<p><table border=0><tr> <th>#</th> <th>name</th> <th>item_count</th> <th>accumulate/s</th> <th>build/s</th>';
 
-html += "# name item_count accumulate/s build/s</p><p>";
+for (var j=0; j < levels_per_item*2; j++) {
+    html += '<th></th> ';
+}
 
 for (var i=0; i < items_arr.length; i++) {
-    html +=  i+". " + items_arr[i]+'&nbsp;';
+
+    html += '<tr><td>' +i+"</td> <td>" + items_arr[i]+'</td>';
     
-    html += "<input type=text value=0 id='"+ items_arr[i] + "' size=15>&nbsp;";
-    html += "<input type=text value='0/s' id='" + items_arr[i] + "_rate' size=15>";
-    html += "<input type=text value='0/s' id='" + items_arr[i] + "_build_rate' size=15>";
+    html += "<td><input type=text value=0 id='"+ items_arr[i] + "' size=15></td>";
+    html += "<td><input type=text value='0/s' id='" + items_arr[i] + "_rate' size=15></td>";
+    html += "<td><input type=text value='0/s' id='" + items_arr[i] + "_build_rate' size=15></td>";
 
     for (var j=0; j < levels_per_item; j++) {
         if (i==0 && j==0 || i>0) // hide all add buttons for item[0]
-            html += "<input type=\"button\" onclick=\"build( '" + items_arr[i] + "', "+ j +" );\" value=\"" + calc(j) +"\">";        
+            html += "<td><input type=\"button\" onclick=\"build( '" + items_arr[i] + "', "+ j +" );\" value=\"" + calc(j) +"\">";        
+        else
+            html += "<td></td>";
 	}
 
 	for (var j=0; j < levels_per_item; j++) {
-		html += "<input type=\"button\" onclick=\"rateInc('" + items_arr[i] + "', "+ j +");\" value='" + calc(j) +"/s'>";
+		html += "<td><input type=\"button\" onclick=\"rateInc('" + items_arr[i] + "', "+ j +");\" value='" + calc(j) +"/s'></td>";
 	}
-
-    html += "<br>";
-
-
-    html += "";
+    html+=' </tr>';
 }
+
+html+='</table>';
 html+='</p>';
+
 div.innerHTML+= html;

@@ -20,15 +20,15 @@ function start(time) {
     			}
     			var newBuild = Math.floor( item_count_map[prev] / Math.pow(BASE,(i+1)) );
     			item_count_map[item] += newBuild;
-    			getElement(prev+"_build_rate").value = newBuild + '/s';
-    			getElement(prev).value = item_count_map[prev];
+    			getElement(prev+"_build_rate").value = numberFormat(newBuild) + '/s';
+    			getElement(prev).value = numberFormat(item_count_map[prev]);
     		} else {
 				item_count_map[ item ] += adjust;
     		}
-    		getElement(item).value = item_count_map[item];
+    		getElement(item).value = numberFormat(item_count_map[item]);
     	}
 
-		getElement("running").value =  Math.floor( (new Date().getTime() - start_time) / 1000);
+		getElement("running").value =  numberFormat(Math.floor( (new Date().getTime() - start_time) / 1000));
 	}, time);
 }
  
@@ -37,9 +37,11 @@ function update_timer_interval( )
 {
 	clearInterval(global_timer);
 
-	starting_interval = parseInt( document.getElementById("timer").value );
+	starting_interval = numberFormat( parseInt( document.getElementById("timer").value ) );
 	
 	start(starting_interval);
 }
 
 start(starting_interval);
+
+addMessage(['starting prestige is', PRESTIGE_BASE+'^'+PRESTIGE_LEVEL,'=', numberFormat(prestigeMultiplier()) ] );

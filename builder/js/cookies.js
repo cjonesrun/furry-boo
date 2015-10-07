@@ -52,6 +52,19 @@ function initFromCookies() {
 
 }
 
+function initFromCookies() {
+
+    var items = document.getCookie("item_count");
+    var rates = document.getCookie("rate_count");
+
+    if (items != null) {
+        item_count_map = JSON.parse(items);
+        rate_map = JSON.parse(rates);
+    }
+    setData(); // timer.js
+
+}
+
 function saveState()
 {
     /*console.log("cookie item count = ", item_count_map);

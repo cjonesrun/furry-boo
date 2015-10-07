@@ -70,6 +70,22 @@ function update_timer_interval( )
 	startUIUpdater();
 }
 
+function reset() {
+    // stop timers.
+    clearInterval(global_timer);
+    clearInterval(cookie_save_timer);
+
+    for (var i=0; i < items_arr.length; i++) {
+        item_count_map[items_arr[i] = 0;
+        rate_map[items_arr[i] = 0;
+    }
+
+    setData();
+
+    startUIUpdater();
+    startCookieSaver();
+}
+
 // init from cookies if they are present, bfore starting the timer
 initFromCookies();
 

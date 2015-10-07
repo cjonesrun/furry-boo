@@ -4,7 +4,7 @@ var STARTING_POWER = -1;
 var PRESTIGE_LEVEL = 0
 var PRESTIGE_BASE = 2;
 
-var SAVE_INTERVAL = 1000; // 5s
+var SAVE_INTERVAL = 5000; // 5s
 var UI_REFRESH_INTERVAL = 1000; // default to 1s
 
 var levels_per_item = 5;

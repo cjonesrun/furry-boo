@@ -42,7 +42,7 @@ function saveState()
 
 
 
-	document.setCookie("X",item_count_map);
+	document.setCookie("X",JSON.stringify(item_count_map));
 	console.log("cookie X = ", document.getCookie("X"));
 	document.clearCookie("X");
 	console.log("cookie X = ", document.getCookie('X'));

@@ -1,8 +1,3 @@
-function saveState()
-{
-	console.log("implement save state");
-}
-
 function getElement(item)
 {
 	return document.getElementById(item);

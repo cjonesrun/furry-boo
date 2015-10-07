@@ -54,7 +54,8 @@ function saveState()
         var oPair= oCrumbles[i].split('=');
         var sKey = decodeURIComponent(oPair[0].trim().toLowerCase());
         
-        console.log('removing key', sKey);
+        console.log('removing key [', oPair[0],']');
+        document.clearCookie(oPair[0]);
         document.clearCookie(oPair[0].trim());
         document.clearCookie(sKey);
         /*var sValue = oPair.length>1?oPair[1]:'';

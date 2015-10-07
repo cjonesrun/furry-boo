@@ -48,7 +48,7 @@ function initFromCookies() {
         item_count_map = JSON.parse(items);
         rate_count = JSON.parse(rates);
     }
-    setData(starting_interval); // timer.js
+    setData(); // timer.js
 
 }
 

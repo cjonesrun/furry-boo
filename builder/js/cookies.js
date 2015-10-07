@@ -56,6 +56,7 @@ function saveState()
         
         console.log('removing key', sKey);
         document.clearCookie(oPair[0].trim());
+        document.clearCookie(sKey);
         /*var sValue = oPair.length>1?oPair[1]:'';
         if(sKey == sName)
             return decodeURIComponent(sValue);*/

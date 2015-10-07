@@ -38,8 +38,8 @@ document.clearCookie = function(sName)
 
 function saveState()
 {
-	console.log("cookie X = ", item_count_map);
-
+	console.log("cookie item count = ", item_count_map);
+    console.log("cookie item rate = ", rate_map );
 
 
 	document.setCookie("X",JSON.stringify(item_count_map));

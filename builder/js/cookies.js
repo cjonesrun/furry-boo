@@ -57,12 +57,12 @@ function saveState()
     console.log("cookie item rate = ", rate_map );*/
 
 
-    var btoa = "item_count= "+ JSON.stringify(item_count_map);
-    btoa += "|rate_count=" + JSON.stringify(rate_map);
-    btoa += "|game_start=" + game_started; 
+    var state = "item_count= "+ JSON.stringify(item_count_map);
+    state += "|rate_count=" + JSON.stringify(rate_map);
+    state += "|game_start=" + game_started; 
 
-    console.log(btoa);
-
+    console.log(state);
+    console.log(btoa(state))
 
 	document.setCookie("item_count",JSON.stringify(item_count_map));
     document.setCookie("rate_count",JSON.stringify(rate_map));

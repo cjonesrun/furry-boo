@@ -63,7 +63,7 @@ function saveState()
         document.clearCookie(sKey);
         /*var sValue = oPair.length>1?oPair[1]:'';
         if(sKey == sName)
-            return decodeURIComponent(sValue);*/
+            return decodeURIComponent(sValue);
     } */
 
     console.log("cookie item count = ", item_count_map);

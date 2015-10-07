@@ -37,7 +37,7 @@ function startUIUpdater() {
 
 function setData() {
     for (var i=0; i < items_arr.length; i++) {
-        getElement(items_arr[i]+"_build_rate").value = numberFormat(items_arr[i]) + '/s';
+        getElement(items_arr[i]+"_build_rate").value = numberFormat(rate_map[items_arr[i]]) + '/s';
         getElement(items_arr[i]).value = numberFormat(item_count_map[items_arr[i]]);
 
     }

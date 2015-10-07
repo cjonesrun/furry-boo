@@ -47,7 +47,7 @@ function initFromCookies() {
     for(var i=0; i<x.length;i++)
     {
         var oPair= x[i].split('=');
-        var sKey = oPair[0].trim();
+        var sKey = decodeURIComponent(oPair[0].trim());
         var sValue = oPair[1];
 
         console.log(sKey, sValue);

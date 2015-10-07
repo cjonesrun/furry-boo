@@ -4,8 +4,11 @@ var STARTING_POWER = -1;
 var PRESTIGE_LEVEL = 0
 var PRESTIGE_BASE = 2;
 
+var COOKIE_SAVE_INTERVAL = 5000; // 5s
+
 var levels_per_item = 5;
-var starting_interval = 1000; /// default to 1s
+var starting_interval = 1000; // default to 1s
+
 
 var items_arr = [ 'bit', 'part', 'block', 'thing', 'object', 'widget', 'contraption', 'gadget', 'doohickey', 'gismo', 'doodad', 'thingamabob', 'whatchamacalit', 'thingamajig', 'apparatus' ];
 

@@ -39,7 +39,7 @@ document.clearCookie = function(sName)
 
 function saveState()
 {
-	console.log("cookie X = ", document.getCookie("X"));
+	console.log("cookie X = ", item_count_map);
 	document.setCookie("X","YYYYY");
 	console.log("cookie X = ", document.getCookie("X"));
 	document.clearCookie("X");

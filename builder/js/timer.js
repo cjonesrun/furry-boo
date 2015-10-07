@@ -42,7 +42,7 @@ function setData() {
 function startCookieSaver() {
     cookie_save_timer = setInterval( function(){
         saveState();
-    }, COOKCOOKIE_SAVE_INTERVAL);
+    }, SAVE_INTERVAL);
 }
  
 function stopTimer() {

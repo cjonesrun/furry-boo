@@ -42,7 +42,8 @@ function initFromCookies() {
 
     var encodedState = document.getCookie("state");
     var state = atob(encodedState);
-
+    console.log(encodedState);
+    console.log(state);
     var x = document.cookie.split('|');
     for(var i=0; i<x.length;i++)
     {

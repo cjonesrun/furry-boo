@@ -39,22 +39,36 @@ document.clearCookie = function(sName)
     document.cookie= sCookie;
 }
 
+
+
 function initFromCookies() {
 
 }
 
 function saveState()
 {
-    document.setCookie('X', 'something');
-    document.clearCookie('item_count');
-    document.clearCookie('rate_count');
+    var oCrumbles = document.cookie.split(';');
+    console.log('crumbles', oCrumbles);
+    for(var i=0; i<oCrumbles.length;i++)
+    {
+        var oPair= oCrumbles[i].split('=');
+        var sKey = decodeURIComponent(oPair[0].trim().toLowerCase());
+        
+        console.log('removing key', sKey);
+        /*var sValue = oPair.length>1?oPair[1]:'';
+        if(sKey == sName)
+            return decodeURIComponent(sValue);*/
+    }
 
-	console.log("cookie item count = ", item_count_map);
+    console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );
 
 	/*document.setCookie("item_count",JSON.stringify(item_count_map));
-    document.setCookie("rate_count",JSON.stringify(rate_map));*/
+    document.setCookie("rate_count",JSON.stringify(rate_map));
 
 	console.log("item_count = ", document.getCookie("item_count"));
-	console.log("rate_count = ", document.getCookie("rate_count"));
+	console.log("rate_count = ", document.getCookie("rate_count"));*/
+
+    document.getCookie("item_count");
+    document.getCookie("rate_count");
 }

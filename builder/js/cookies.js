@@ -33,7 +33,10 @@ removes the value of a cookie
 **********************************************************/
 document.clearCookie = function(sName)
 {
-    document.setCookie(sName,'');
+    var oDate = new Date();
+    oDate.setYear(oDate.getFullYear()-1);
+    var sCookie = encodeURIComponent(sName) + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
+    document.cookie= sCookie;
 }
 
 function initFromCookies() {

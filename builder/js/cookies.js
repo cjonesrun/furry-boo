@@ -16,7 +16,6 @@ document.getCookie = function(sName)
 {
     sName = sName.toLowerCase();
     var oCrumbles = document.cookie.split(';');
-    console.log('crumbles', oCrumbles);
     for(var i=0; i<oCrumbles.length;i++)
     {
         var oPair= oCrumbles[i].split('=');
@@ -29,15 +28,13 @@ document.getCookie = function(sName)
 }
 
 /*********************************************************
-removes the value of a cookie
+expires a cookie
 **********************************************************/
 document.clearCookie = function(sName)
 {
     var oDate = new Date();
     oDate.setYear(oDate.getFullYear()-1);
-    //var sCookie = encodeURIComponent(sName) + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
-    var sCookie = sName + '=' + ',expires=' + oDate.toGMTString() + ',path=/;expires=' + oDate.toGMTString();
-    console.log('clearing', sCookie);
+    var sCookie = encodeURIComponent(sName) + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
     document.cookie= sCookie;
 }
 
@@ -49,27 +46,13 @@ function initFromCookies() {
 
 function saveState()
 {
-    var oCrumbles = document.cookie.split(';');
-    console.log('crumbles', oCrumbles);
-    for(var i=0; i<oCrumbles.length;i++)
-    {
-        var oPair= oCrumbles[i].split('=');
-        var sKey = decodeURIComponent(oPair[0].trim().toLowerCase());
-        
-        console.log('removing key [', oPair[0],']');
-        document.clearCookie(oPair[0]);
-        
-    } 
-
     console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );
 
-	/*document.setCookie("item_count",JSON.stringify(item_count_map));
+	document.setCookie("item_count",JSON.stringify(item_count_map));
     document.setCookie("rate_count",JSON.stringify(rate_map));
 
 	console.log("item_count = ", document.getCookie("item_count"));
-	console.log("rate_count = ", document.getCookie("rate_count"));*/
+	console.log("rate_count = ", document.getCookie("rate_count"));
 
-    document.getCookie("item_count");
-    document.getCookie("rate_count");
 }

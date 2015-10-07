@@ -8,6 +8,8 @@ document.setCookie = function(sName,sValue)
     var sCookie = encodeURIComponent(sName) + '=' + encodeURIComponent(sValue) + ',expires=' + oDate.toGMTString() + ',path=/';
 
     document.cookie= sCookie;
+
+    console.lor(sCookie, document.cookie);
 }
 
 /*********************************************************

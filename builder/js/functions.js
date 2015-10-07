@@ -103,7 +103,7 @@ function rateInc( item, rate ) {
 		getElement(item + "_rate").value = numberFormat(rate_map[item]) + "/s";
 		getElement(next).value = numberFormat(item_count_map[next]);
 	} else {
-		addMessage( ['can\'t build', item, 'accelerator. insufficient', next+"."	, 'have', numberFormat(item_count_map[next]), 'need', numberFormat(next_cost) +"."] );
+		addMessage( ['can\'t build', item, 'rate+. insufficient', next+"."	, 'have', numberFormat(item_count_map[next]), 'need', numberFormat(next_cost) +"."] );
 	}
 
 	//addMessage( [item, getElement(item).value, next_map[item], getElement(next_map[item]).value]);

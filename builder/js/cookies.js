@@ -38,20 +38,6 @@ document.clearCookie = function(sName)
     document.cookie= sCookie;
 }
 
-
-
-function initFromCookies() {
-    var items = document.getCookie("item_count");
-    var rates = document.getCookie("rate_count");
-
-    if (items != null) {
-        item_count_map = JSON.parse(items);
-        rate_map = JSON.parse(rates);
-    }
-    setData(); // timer.js
-
-}
-
 function initFromCookies() {
 
     var items = document.getCookie("item_count");
@@ -70,10 +56,20 @@ function saveState()
     /*console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );*/
 
+
+    var btoa = "item_count= "+ JSON.stringify(item_count_map);
+    btoa += "|rate_count=" + JSON.stringify(rate_map));
+    bota += "|game_start=" + game_started; 
+
+    console.log(btoa);
+
+
 	document.setCookie("item_count",JSON.stringify(item_count_map));
     document.setCookie("rate_count",JSON.stringify(rate_map));
 
 	/*console.log("item_count = ", document.getCookie("item_count"));
 	console.log("rate_count = ", document.getCookie("rate_count"));*/
 
+    last_save = new Date().getTime();
 }
+

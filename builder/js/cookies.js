@@ -50,8 +50,8 @@ function saveState()
 	document.setCookie("item_count",JSON.stringify(item_count_map));
     document.setCookie("rate_count",JSON.stringify(rate_map));
 
-	console.log("item_count = ", JSON.parse( document.getCookie("item_count") ));
-	console.log("rate_count = ", JSON.parse( document.getCookie("rate_count") ));
+	console.log("item_count = ", document.getCookie("item_count"));
+	console.log("rate_count = ", document.getCookie("rate_count"));
 
     startTimer();
 }

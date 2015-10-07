@@ -8,7 +8,6 @@ document.setCookie = function(sName,sValue)
     var sCookie = encodeURIComponent(sName) + '=' + encodeURIComponent(sValue) + ',expires=' + oDate.toGMTString() + ',path=/';
 
     document.cookie= sCookie;
-    //alert("Your Cookie : " + document.cookie);
 }
 
 /*********************************************************
@@ -40,7 +39,10 @@ document.clearCookie = function(sName)
 function saveState()
 {
 	console.log("cookie X = ", item_count_map);
-	document.setCookie("X","YYYYY");
+
+
+
+	document.setCookie("X",item_count_map);
 	console.log("cookie X = ", document.getCookie("X"));
 	document.clearCookie("X");
 	console.log("cookie X = ", document.getCookie('X'));

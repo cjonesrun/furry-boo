@@ -48,15 +48,13 @@ function saveState()
     document.clearCookie('X');
     document.clearCookie('item_count');
     document.clearCookie('rate_count');
-    document.clearCookie('\ item_count');
-    document.clearCookie('\ rate_count');
 
 	console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );
 
-	document.setCookie("item_count",JSON.stringify(item_count_map));
+	/*document.setCookie("item_count",JSON.stringify(item_count_map));
     document.setCookie("rate_count",JSON.stringify(rate_map));
 
 	console.log("item_count = ", document.getCookie("item_count"));
-	console.log("rate_count = ", document.getCookie("rate_count"));
+	console.log("rate_count = ", document.getCookie("rate_count"));*/
 }

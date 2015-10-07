@@ -40,13 +40,24 @@ document.clearCookie = function(sName)
 
 function initFromCookies() {
 
-    var items = document.getCookie("item_count");
-    var rates = document.getCookie("rate_count");
+    var encodedState = document.getCookie("state");
+    var state = atob(encodedState);
+
+    var x = document.cookie.split('|');
+    for(var i=0; i<x.length;i++)
+    {
+        var oPair= x[i].split('=');
+        var sKey = oPair[0].trim();
+        var sValue = oPair[1];
+
+        console.log(sKey, sValue);
+    }
+    /*var rates = document.getCookie("rate_count");
 
     if (items != null) {
         item_count_map = JSON.parse(items);
         rate_map = JSON.parse(rates);
-    }
+    }*/
     setData(); // timer.js
 
 }

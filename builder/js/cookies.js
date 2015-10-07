@@ -35,7 +35,8 @@ document.clearCookie = function(sName)
 {
     var oDate = new Date();
     oDate.setYear(oDate.getFullYear()-1);
-    var sCookie = encodeURIComponent(sName) + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
+    //var sCookie = encodeURIComponent(sName) + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
+    var sCookie = sName + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
     document.cookie= sCookie;
 }
 

@@ -33,7 +33,7 @@ function startUIUpdater() {
             getElement(item).value = numberFormat(item_count_map[item]);
         }
        
-		getElement("running").value =  numberFormat(Math.floor( (new Date().getTime() - start_time) / 1000));
+		getElement("running").value =  numberFormat(Math.floor( (new Date().getTime() - game_started) / 1000));
 	}, UI_REFRESH_INTERVAL);
 }
 

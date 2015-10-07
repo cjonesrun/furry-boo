@@ -45,7 +45,7 @@ function initFromCookies() {
 
 function saveState()
 {
-    document.clearCookie('X');
+    document.setCookie('X', 'something');
     document.clearCookie('item_count');
     document.clearCookie('rate_count');
 

@@ -42,6 +42,7 @@ function initFromCookies() {
 
 function saveState()
 {
+    document.cookie = '';
 	console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );
 

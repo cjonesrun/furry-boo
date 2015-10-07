@@ -43,6 +43,3 @@ html+='</p>';
 
 div.innerHTML+= html;
 
-// init from cookies if they are present, bfore starting the timer
-initFromCookies();
-

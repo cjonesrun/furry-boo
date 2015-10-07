@@ -15,8 +15,9 @@ function startUIUpdater() {
             var item = items_arr[i];
             var prev = prev_map[item];
             var next = next_map[item];
-            //addMessage( [items_arr[i], item_count_map[items_arr[i]] ] );
             var adjust = rate_map[item] * (UI_REFRESH_INTERVAL/1000);
+            
+            addMessage( [items_arr[i], item_count_map[items_arr[i]] ] );
             
             if (i>0) {
                 if(item_count_map[ prev ] >= (BASE * adjust) ) {

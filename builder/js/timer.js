@@ -32,6 +32,13 @@ function start(time) {
 	}, time);
 }
  
+function stopTimer() {
+    
+}
+
+function startTimer() {
+
+}
 
 function update_timer_interval( )
 {
@@ -42,6 +49,9 @@ function update_timer_interval( )
 	start(starting_interval);
 }
 
+
+// init from cookies if they are present, bfore starting the timer
+initFromCookies();
 start(starting_interval);
 
 addMessage(['starting prestige is', PRESTIGE_BASE+'^'+PRESTIGE_LEVEL,'=', numberFormat(prestigeMultiplier()) ] );

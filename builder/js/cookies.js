@@ -36,14 +36,22 @@ document.clearCookie = function(sName)
     document.setCookie(sName,'');
 }
 
+function initFromCookies() {
+
+}
+
 function saveState()
 {
+    stopTimer();
+
 	console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );
 
+	document.setCookie("item_count",JSON.stringify(item_count_map));
+    document.setCookie("rate_count",JSON.stringify(rate_map));
 
-	document.setCookie("X",JSON.stringify(item_count_map));
-	console.log("cookie X = ", document.getCookie("X"));
-	document.clearCookie("X");
-	console.log("cookie X = ", document.getCookie('X'));
+	console.log("item_count = ", JSON.parse( document.getCookie("item_count") ));
+	console.log("rate_count = ", JSON.parse( document.getCookie("rate_count") ));
+
+    startTimer();
 }

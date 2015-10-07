@@ -51,7 +51,7 @@ function saveState()
 {
     var oCrumbles = document.cookie.split(';');
     console.log('crumbles', oCrumbles);
-    for(var i=0; i<oCrumbles.length;i++)
+    /*for(var i=0; i<oCrumbles.length;i++)
     {
         var oPair= oCrumbles[i].split('=');
         var sKey = decodeURIComponent(oPair[0].trim().toLowerCase());
@@ -64,7 +64,7 @@ function saveState()
         /*var sValue = oPair.length>1?oPair[1]:'';
         if(sKey == sName)
             return decodeURIComponent(sValue);*/
-    }
+    } */
 
     console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );

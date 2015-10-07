@@ -43,6 +43,9 @@ function initFromCookies() {
 function saveState()
 {
     document.clearCookie('X');
+    document.clearCookie('item_count');
+    document.clearCookie('rate_count');
+
 	console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );
 

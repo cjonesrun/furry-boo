@@ -61,11 +61,10 @@ function saveState()
     state += "|rate_count=" + JSON.stringify(rate_map);
     state += "|game_start=" + game_started; 
 
-    console.log(state);
-    console.log(btoa(state))
-
 	document.setCookie("item_count",JSON.stringify(item_count_map));
     document.setCookie("rate_count",JSON.stringify(rate_map));
+
+    document.setCookie("state", btoa(state));
 
 	/*console.log("item_count = ", document.getCookie("item_count"));
 	console.log("rate_count = ", document.getCookie("rate_count"));*/

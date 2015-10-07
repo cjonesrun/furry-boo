@@ -65,23 +65,11 @@ function initFromCookies() {
 
 function saveState()
 {
-    /*console.log("cookie item count = ", item_count_map);
-    console.log("cookie item rate = ", rate_map );*/
-
-
     var state = "item_count= "+ JSON.stringify(item_count_map);
     state += "|rate_count=" + JSON.stringify(rate_map);
     state += "|game_start=" + game_started; 
 
-	/*document.setCookie("item_count",JSON.stringify(item_count_map));
-    document.setCookie("rate_count",JSON.stringify(rate_map));*/
-    document.clearCookie("item_count");
-    document.clearCookie("rate_count");
-
     document.setCookie("state", btoa(state));
-
-	/*console.log("item_count = ", document.getCookie("item_count"));
-	console.log("rate_count = ", document.getCookie("rate_count"));*/
 
     last_save = new Date().getTime();
 }

@@ -59,12 +59,6 @@ function initFromCookies() {
         else if (sKey == "game_start")
             game_started = JSON.parse(sValue);
     }
-    /*var rates = document.getCookie("rate_count");
-
-    if (items != null) {
-        item_count_map = JSON.parse(items);
-        rate_map = JSON.parse(rates);
-    }*/
     setData(); // timer.js
 
 }
@@ -79,8 +73,10 @@ function saveState()
     state += "|rate_count=" + JSON.stringify(rate_map);
     state += "|game_start=" + game_started; 
 
-	document.setCookie("item_count",JSON.stringify(item_count_map));
-    document.setCookie("rate_count",JSON.stringify(rate_map));
+	/*document.setCookie("item_count",JSON.stringify(item_count_map));
+    document.setCookie("rate_count",JSON.stringify(rate_map));*/
+    document.clearCookie("item_count");
+    document.clearCookie("rate_count");
 
     document.setCookie("state", btoa(state));
 

@@ -44,7 +44,7 @@ function initFromCookies() {
     var state = atob(encodedState);
     console.log(encodedState);
     console.log(state);
-    
+
     var x = state.split('|');
     for(var i=0; i<x.length;i++)
     {
@@ -52,7 +52,12 @@ function initFromCookies() {
         var sKey = decodeURIComponent(oPair[0].trim());
         var sValue = oPair[1];
 
-        console.log(sKey, sValue);
+        if (sKey == "item_count")
+            item_count_map = JSON.parse(sValue);
+        else if (sKey == "rate_count")
+            rate_map = JSON.parse(sValue);
+        else if (sKey == "game_start")
+            game_started = JSON.parse(sValue);
     }
     /*var rates = document.getCookie("rate_count");
 

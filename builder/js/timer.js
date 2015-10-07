@@ -13,7 +13,7 @@ function start(time) {
 	}, time);
 }
 
-function setData() {
+function setData(time) {
     for (var i=0; i < items_arr.length; i++) {
             var item = items_arr[i];
             var prev =prev_map[item];

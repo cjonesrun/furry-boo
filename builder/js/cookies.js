@@ -37,6 +37,7 @@ document.clearCookie = function(sName)
     oDate.setYear(oDate.getFullYear()-1);
     //var sCookie = encodeURIComponent(sName) + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
     var sCookie = sName + '=' + ';expires=' + oDate.toGMTString() + ';path=/';
+    console.log('clearing', sCookie);
     document.cookie= sCookie;
 }
 
@@ -58,6 +59,7 @@ function saveState()
         console.log('removing key [', oPair[0],']');
         document.clearCookie(oPair[0]);
         document.clearCookie(oPair[0].trim());
+        document.clearCookie(oPair[0].trim().toLowerCase());
         document.clearCookie(sKey);
         /*var sValue = oPair.length>1?oPair[1]:'';
         if(sKey == sName)

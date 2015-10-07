@@ -1,16 +1,18 @@
 
 var start_time = new Date().getTime();
 
-// main timer for auto block & thing building
-var global_timer;
+var global_timer; // main timer for auto block & thing building
+var cookie_save_timer;
 
-function start() {
+
+
+function startUIUpdater() {
     global_timer = setInterval(function(){ 
     	
         setData();
 
 		getElement("running").value =  numberFormat(Math.floor( (new Date().getTime() - start_time) / 1000));
-	}, starting_interval);
+	}, UI_REFRESH_INTERVAL);
 }
 
 function setData() {
@@ -19,7 +21,7 @@ function setData() {
             var prev =prev_map[item];
             var next = next_map[item];
             //addMessage( [items_arr[i], item_count_map[items_arr[i]] ] );
-            var adjust = rate_map[item] * (starting_interval/1000);
+            var adjust = rate_map[item] * (UI_REFRESH_INTERVAL/1000);
             
             if (i>0) {
                 if(item_count_map[ prev ] >= (BASE * adjust) ) {
@@ -36,6 +38,12 @@ function setData() {
             getElement(item).value = numberFormat(item_count_map[item]);
         }
 }
+
+function startCookieSaver() {
+    cookie_save_timer = setInterval( function(){
+        saveState();
+    }, COOKCOOKIE_SAVE_INTERVAL);
+}
  
 function stopTimer() {
 
@@ -49,9 +57,9 @@ function update_timer_interval( )
 {
 	clearInterval(global_timer);
 
-	starting_interval = numberFormat( parseInt( document.getElementById("timer").value ) );
+	UI_REFRESH_INTERVAL = numberFormat( parseInt( document.getElementById("timer").value ) );
 	
-	start();
+	startUIUpdater();
 }
 
 // init from cookies if they are present, bfore starting the timer

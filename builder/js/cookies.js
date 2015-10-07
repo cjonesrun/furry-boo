@@ -44,7 +44,8 @@ function initFromCookies() {
     var state = atob(encodedState);
     console.log(encodedState);
     console.log(state);
-    var x = document.cookie.split('|');
+    
+    var x = state.split('|');
     for(var i=0; i<x.length;i++)
     {
         var oPair= x[i].split('=');

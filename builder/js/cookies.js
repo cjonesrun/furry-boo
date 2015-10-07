@@ -5,11 +5,8 @@ document.setCookie = function(sName,sValue)
 {
     var oDate = new Date();
     oDate.setYear(oDate.getFullYear()+1);
-    var sCookie = encodeURIComponent(sName) + '=' + encodeURIComponent(sValue) + ',expires=' + oDate.toGMTString() + ',path=/';
-
+    var sCookie = encodeURIComponent(sName) + '=' + encodeURIComponent(sValue) + ';expires=' + oDate.toGMTString() + ';path=/';
     document.cookie= sCookie;
-
-    console.log(sCookie, document.cookie);
 }
 
 /*********************************************************
@@ -18,7 +15,7 @@ gets the value of a cookie
 document.getCookie = function(sName)
 {
     sName = sName.toLowerCase();
-    var oCrumbles = document.cookie.split(',');
+    var oCrumbles = document.cookie.split(';');
     for(var i=0; i<oCrumbles.length;i++)
     {
         var oPair= oCrumbles[i].split('=');

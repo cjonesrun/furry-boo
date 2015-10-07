@@ -69,8 +69,14 @@ function saveState()
     state += "|rate_count=" + JSON.stringify(rate_map);
     state += "|game_start=" + game_started; 
 
-    document.setCookie("state", btoa(state));
+    var encodedState = btoa(state);
+    document.setCookie("state", encodedState);
 
     last_save = new Date().getTime();
+
+    return btoa;
 }
 
+function exportState() {
+    addMessage([ saveState() ]);
+}

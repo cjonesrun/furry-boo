@@ -1,7 +1,7 @@
 
 var this_session_start_time = new Date().getTime();
-var game_started;   // when this game started
-var last_save;      // last time the game was saved  
+var game_started = new Date().getTime();    // when this game started
+var last_save;                              // last time the game was saved  
 
 var global_timer; // main timer for auto block & thing building
 var cookie_save_timer;

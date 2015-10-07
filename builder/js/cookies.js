@@ -9,7 +9,7 @@ document.setCookie = function(sName,sValue)
 
     document.cookie= sCookie;
 
-    console.lor(sCookie, document.cookie);
+    console.log(sCookie, document.cookie);
 }
 
 /*********************************************************

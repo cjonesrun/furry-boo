@@ -65,6 +65,7 @@ function update_timer_interval( )
 // init from cookies if they are present, bfore starting the timer
 initFromCookies();
 
-start();
+startUIUpdater();
+startCookieSaver();
 
 addMessage(['starting prestige is', PRESTIGE_BASE+'^'+PRESTIGE_LEVEL,'=', numberFormat(prestigeMultiplier()) ] );

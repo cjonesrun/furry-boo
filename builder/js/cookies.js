@@ -59,7 +59,7 @@ function saveState()
 
     var btoa = "item_count= "+ JSON.stringify(item_count_map);
     btoa += "|rate_count=" + JSON.stringify(rate_map));
-    bota += "|game_start=" + game_started; 
+    btoa += "|game_start=" + game_started; 
 
     console.log(btoa);
 

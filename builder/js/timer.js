@@ -76,8 +76,8 @@ function reset() {
     clearInterval(cookie_save_timer);
 
     for (var i=0; i < items_arr.length; i++) {
-        item_count_map[items_arr[i] = 0;
-        rate_map[items_arr[i] = 0;
+        item_count_map[items_arr[i]] = 0;
+        rate_map[items_arr[i]] = 0;
     }
 
     setData();

@@ -16,6 +16,7 @@ document.getCookie = function(sName)
 {
     sName = sName.toLowerCase();
     var oCrumbles = document.cookie.split(';');
+    console.log('crumbles', oCrumbles);
     for(var i=0; i<oCrumbles.length;i++)
     {
         var oPair= oCrumbles[i].split('=');
@@ -41,8 +42,6 @@ function initFromCookies() {
 
 function saveState()
 {
-    stopTimer();
-
 	console.log("cookie item count = ", item_count_map);
     console.log("cookie item rate = ", rate_map );
 
@@ -51,6 +50,4 @@ function saveState()
 
 	console.log("item_count = ", document.getCookie("item_count"));
 	console.log("rate_count = ", document.getCookie("rate_count"));
-
-    startTimer();
 }

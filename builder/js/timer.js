@@ -9,16 +9,9 @@ var cookie_save_timer;
 function startUIUpdater() {
     global_timer = setInterval(function(){ 
     	
-        setData();
-
-		getElement("running").value =  numberFormat(Math.floor( (new Date().getTime() - start_time) / 1000));
-	}, UI_REFRESH_INTERVAL);
-}
-
-function setData() {
-    for (var i=0; i < items_arr.length; i++) {
+        for (var i=0; i < items_arr.length; i++) {
             var item = items_arr[i];
-            var prev =prev_map[item];
+            var prev = prev_map[item];
             var next = next_map[item];
             //addMessage( [items_arr[i], item_count_map[items_arr[i]] ] );
             var adjust = rate_map[item] * (UI_REFRESH_INTERVAL/1000);
@@ -37,6 +30,17 @@ function setData() {
             }
             getElement(item).value = numberFormat(item_count_map[item]);
         }
+       
+		getElement("running").value =  numberFormat(Math.floor( (new Date().getTime() - start_time) / 1000));
+	}, UI_REFRESH_INTERVAL);
+}
+
+function setData() {
+    for (var i=0; i < items_arr.length; i++) {
+        getElement(items_arr[i]+"_build_rate").value = numberFormat(items_arr[i]) + '/s';
+        getElement(items_arr[i]).value = numberFormat(item_count_map[items_arr[i]]);
+
+    }
 }
 
 function startCookieSaver() {

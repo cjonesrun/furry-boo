@@ -49,7 +49,7 @@ function buildAll(item) {
 
 	var to_build = Math.floor( item_count_map[prev] / BASE );
 	if (to_build == 0) {
-		addMessage(['can\'t build', item +".", 'insufficient', prev_map[item]+'.' ]);
+		addMessage(['can\'t build', item +".", 'insufficient', prev +'.' ]);
 		return;
 	}
 
@@ -59,11 +59,24 @@ function buildAll(item) {
 
 	getElement(item).value = numberFormat(item_count_map[item]);
 	getElement(prev).value = numberFormat(item_count_map[prev]);
-	
-	//console.log( 'building as many', item, 'as possible.', 'can build',to_build, item, 'costing', cost, prev);
 }
 
+function buildAllRateInc(item) {
+	var next = next_map[item];
 
+	var to_build = Math.floor( item_count_map[next] / BASE );
+	if (to_build == 0) {
+		addMessage(['can\'t build', item +" rate+.", 'insufficient', next+'.' ]);
+		return;
+	}
+
+	var cost = to_build * BASE;
+	rate_map[item] += to_build;
+	item_count_map[next] -= cost;
+
+	getElement(item+ "_rate").value = numberFormat(rate_map[item]) + "/s";
+	getElement(next).value = numberFormat(item_count_map[next]);
+}
 
 // increase an item count by BASE^level items
 function itemInc(item, level) {

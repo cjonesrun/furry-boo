@@ -3,9 +3,12 @@ var html = '';
 
 html+='<p><table border=0><tr> <th>#</th> <th>name</th> <th>item_count</th> <th>accumulate/s</th> <th>build/s</th>';
 
-for (var j=0; j < levels_per_item*2+1; j++) {
-    html += '<th></th> ';
-}
+html += '<th colspan="' + (levels_per_item+1) + '">build</th> ';
+html += '<th colspan="' + (levels_per_item+1) + '">auto</th> ';
+
+html += '<th rowspan="' + (items_arr.length+1) + '">messages <input type=button value="clear" onclick="document.getElementById(\'messages\').value=\'\';"><br>' +
+        '<p><textarea id="messages" rows="25" cols="60"></textarea>' +
+        '</p></th>';
 
 for (var i=0; i < items_arr.length; i++) {
 
@@ -30,7 +33,7 @@ for (var i=0; i < items_arr.length; i++) {
 		html += "<td><input type=\"button\" onclick=\"rateInc('" + items_arr[i] + "', "+ j +");\" value='" + numberFormat(prestigeMultiplier() * calc(j)) +"/s'></td>";
 	}
 
-    html += "<td><input type=\"button\" onclick=\"\" value=\"ALL\">";
+    html += "<td><input type=\"button\" onclick=\"buildAllRateInc('" + items_arr[i] + "');\" value=\"ALL\">";
 
     html+='</tr>';
 }

@@ -38,9 +38,7 @@ document.clearCookie = function(sName)
     document.cookie= sCookie;
 }
 
-function initFromCookies() {
-
-    var encodedState = document.getCookie("state");
+function initFromCookies(encodedState) {
     var state = atob(encodedState);
     //console.log(encodedState);
     //console.log(state);
@@ -79,4 +77,9 @@ function saveState()
 
 function exportState() {
     addMessage([ saveState() ]);
+}
+
+function loadState() {
+    var encodedState = document.getElementById( 'messages' ).value.trim();
+    initFromCookies(encodedState);
 }

@@ -89,7 +89,7 @@ function reset() {
 }
 
 // init from cookies if they are present, bfore starting the timer
-initFromCookies();
+initFromCookies(document.getCookie("state"));
 
 startUIUpdater();
 startCookieSaver();

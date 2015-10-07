@@ -74,7 +74,7 @@ function saveState()
 
     last_save = new Date().getTime();
 
-    return btoa;
+    return encodedState;
 }
 
 function exportState() {

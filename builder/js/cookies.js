@@ -41,6 +41,13 @@ document.clearCookie = function(sName)
 
 
 function initFromCookies() {
+    var items = document.getCookie("item_count");
+    var rates = document.getCookie("rate_count");
+
+    if (items != null) {
+        item_count_map = JSON.parse(items);
+        rate_count = JSON.parse(rates);
+    }
 
 }
 
